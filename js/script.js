@@ -11,7 +11,8 @@ Button.prototype = {
 		this.$element.click(function() {
 			alert("Został wciśnięty guzik z napisem " + self.text);
 			new Button('kk');
-			var btn1 = new Button(prompt('Jak nazwiesz swój kolejny super guzik?', 'Mój nowy guzik'));
+			this.text = prompt('napisz coś')
+			var btn1 = new Button(this.text || "hej");
 			btn1.create();
 		});
 		this.$element.appendTo($('body'));
