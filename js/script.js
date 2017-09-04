@@ -6,13 +6,14 @@ function Button(text) {
 Button.prototype = {
 	create: function() {
 		var self = this;
+		var textAlternative = this.text || "hej";
 		this.$element = $('<button>');
-		this.$element.text(this.text);
+		this.$element.text(textAlternative);
 		this.$element.click(function() {
-			alert("Został wciśnięty guzik z napisem " + self.text);
+			alert("Został wciśnięty guzik z napisem " + textAlternative);
 			new Button('kk');
 			this.text = prompt('napisz coś')
-			var btn1 = new Button(this.text || "hej");
+			var btn1 = new Button(this.text);
 			btn1.create();
 		});
 		this.$element.appendTo($('body'));
