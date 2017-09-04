@@ -1,16 +1,15 @@
 function Button(text) {
-	this.text = text;
+	this.text = text || "konstruktor zdefiniowany jest w liniach 1 - 3, gdzie stoi, że function Klasa(parametr) {…………}";
 }
 
 
 Button.prototype = {
 	create: function() {
 		var self = this;
-		var textAlternative = this.text || "hej";
 		this.$element = $('<button>');
-		this.$element.text(textAlternative);
+		this.$element.text(this.text);
 		this.$element.click(function() {
-			alert("Został wciśnięty guzik z napisem " + textAlternative);
+			alert("Został wciśnięty guzik z napisem " + self.text);
 			new Button('kk');
 			this.text = prompt('napisz coś')
 			var btn1 = new Button(this.text);
